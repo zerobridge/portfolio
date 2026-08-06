@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>김영교, AI Engineer</title>
+<meta name="description" content="5개의 리테일 및 서비스 산업의 비즈니스 문제를 LLM/Agent/ML 기반 AI 서비스로 기획/구축/배포한 AI Engineer 김영교의 포트폴리오">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --ink:#16233B;
+    --ink-soft:#4A5568;
+    --paper:#F7F8FA;
+    --card:#FFFFFF;
+    --line:#D9DEE7;
+    --metric:#0F7B6C;
+    --metric-bg:#E7F3F0;
+    --serif:'Noto Serif KR', serif;
+    --sans:'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--metric);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* ── 유틸바 ─────────────────────────── */
+  .topbar{border-bottom:1px solid var(--line);background:var(--card)}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px;gap:12px;flex-wrap:wrap}
+  .topbar .id{font-family:var(--mono);font-size:12px;letter-spacing:.12em;font-weight:600}
+  .topbar nav{display:flex;gap:20px;font-family:var(--mono);font-size:12px}
+  .topbar nav a{text-decoration:none;color:var(--ink-soft)}
+  .topbar nav a:hover{color:var(--ink)}
+
+  /* ── 히어로 ─────────────────────────── */
+  .hero{padding:76px 0 56px}
+  .hero .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:20px}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4.6vw,44px);line-height:1.42;letter-spacing:-.01em;max-width:21em}
+  .hero h1 mark{background:linear-gradient(transparent 62%, var(--metric-bg) 62%);color:inherit;padding:0 .06em}
+  .hero .sub{margin-top:22px;color:var(--ink-soft);max-width:38em;font-size:16.5px}
+  .hero .facts{margin-top:30px;display:flex;gap:0;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .hero .facts div{padding:14px 26px 14px 0;margin-right:26px;font-family:var(--mono);font-size:13px;color:var(--ink-soft)}
+  .hero .facts b{display:block;font-size:15px;color:var(--ink);font-weight:600;margin-bottom:2px}
+  .hero .cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 22px;border-radius:6px;border:1.5px solid var(--ink);transition:transform .12s ease}
+  .btn:hover{transform:translateY(-1px)}
+  @media (prefers-reduced-motion: reduce){.btn:hover{transform:none}html{scroll-behavior:auto}}
+  .btn.primary{background:var(--ink);color:#fff}
+  .btn.ghost{background:transparent;color:var(--ink)}
+
+  /* ── 섹션 공통 ───────────────────────── */
+  section{padding:56px 0}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+  .sec-head h2{font-family:var(--serif);font-size:24px;font-weight:700}
+  .sec-head .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ink-soft)}
+
+  /* ── 프로젝트 ───────────────────────── */
+  .ledger{border-top:2px solid var(--ink)}
+  .row{display:grid;grid-template-columns:150px 1fr 180px;gap:24px;padding:28px 0;border-bottom:1px solid var(--line)}
+  .row .when{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);line-height:1.8}
+  .row .when b{display:block;color:var(--ink);font-weight:600}
+  .row h3{font-size:17px;font-weight:700;margin-bottom:10px}
+  .row h3 small{font-weight:500;color:var(--ink-soft);font-size:13.5px;margin-left:8px}
+  .row ul{list-style:none;font-size:14.5px;color:var(--ink-soft);max-width:46em}
+  .row ul li{padding-left:14px;position:relative;margin-bottom:6px}
+  .row ul li::before{content:"–";position:absolute;left:0;color:var(--line)}
+  .row ul li b{color:var(--ink);font-weight:600}
+  .row .stack{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+  .row .stack span{font-family:var(--mono);font-size:11px;padding:3px 9px;background:var(--card);border:1px solid var(--line);border-radius:99px;color:var(--ink-soft)}
+  .row .impact{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+  .chip{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--metric);background:var(--metric-bg);padding:6px 11px;border-radius:5px;line-height:1.45}
+
+  /* ── 케이스 스터디 ───────────────────── */
+  .case-cat{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ink-soft);margin:34px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .case-cat:first-of-type{margin-top:0}
+  .case{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:34px 38px;margin-bottom:20px}
+  .case h3{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.5;margin-bottom:6px}
+  .case .meta{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-bottom:22px}
+  .case h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--metric);margin:22px 0 8px}
+  .case p{font-size:15px;color:var(--ink-soft);max-width:52em;line-height:1.8}
+  .case p b{color:var(--ink);font-weight:600}
+  .case .pts{list-style:none;margin-bottom:4px}
+  .case .pts li{font-size:14.5px;color:var(--ink-soft);padding-left:14px;position:relative;margin-bottom:6px;line-height:1.75;max-width:52em}
+  .case .pts li::before{content:"\2013";position:absolute;left:0;color:var(--line)}
+  .case .pts li b{color:var(--ink);font-weight:600}
+  .case .tldr{list-style:none;margin-bottom:6px}
+  .case .tldr li{font-size:15px;padding-left:86px;position:relative;margin-bottom:10px;color:var(--ink);line-height:1.7}
+  .case .tldr li::before{content:attr(data-k);position:absolute;left:0;top:3px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--metric);font-weight:600}
+  .case details{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+  .case summary{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--ink-soft);cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px}
+  .case summary::before{content:"+";font-size:15px;color:var(--metric)}
+  .case details[open] summary::before{content:"–"}
+  .case summary:hover{color:var(--ink)}
+  .case .demo-btn{display:inline-block;margin-top:16px;font-weight:600;font-size:14px;padding:10px 20px;border-radius:6px;background:var(--metric);color:#fff;text-decoration:none}
+  .case .demo-btn:hover{opacity:.9}
+  @media (max-width:720px){.case{padding:26px 22px}.case .tldr li{padding-left:0;padding-top:20px}.case .tldr li::before{top:0}}
+
+  /* ── 연구 ───────────────────────────── */
+  .papers{display:grid;gap:16px}
+  .paper{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px 26px;display:grid;grid-template-columns:120px 1fr;gap:20px}
+  .paper .kind{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--ink-soft);padding-top:3px}
+  .paper h3{font-size:15.5px;font-weight:700;line-height:1.55}
+  .paper p{font-size:13.5px;color:var(--ink-soft);margin-top:6px}
+  .paper .chip{margin-top:10px;display:inline-block}
+  .paper .links{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .paper .links a{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--metric);text-decoration:none;border:1px solid var(--metric);border-radius:5px;padding:6px 12px}
+  .paper .links a:hover{background:var(--metric-bg)}
+
+  /* ── 학력 ───────────────────────────── */
+  .edu{display:grid;gap:16px}
+  .edu-item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px 26px}
+  .edu-item .head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  .edu-item h3{font-size:16.5px;font-weight:700}
+  .edu-item .when{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+  .edu-item p{font-size:14px;color:var(--ink-soft)}
+  .edu-item .projects{list-style:none;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+  .edu-item .projects li{font-size:14px;padding-left:78px;position:relative;margin-bottom:10px;line-height:1.7}
+  .edu-item .projects li::before{content:attr(data-k);position:absolute;left:0;top:2px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-soft);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  .edu-item .projects li b{color:var(--ink);font-weight:600}
+  .edu-item .projects li a{color:var(--metric);font-weight:600;text-decoration:none;font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+  .edu-item .projects li a:hover{text-decoration:underline}
+  @media (max-width:720px){.edu-item .projects li{padding-left:0;padding-top:22px}.edu-item .projects li::before{top:0}}
+
+  /* ── 스킬 ───────────────────────────── */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .skill-group{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+  .skill-group h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:12px}
+  .skill-group ul{list-style:none;font-size:14px;line-height:1.9;overflow-wrap:anywhere}
+  .skill-group ul li{margin-bottom:4px}
+
+  /* ── 자격/수상 ──────────────────────── */
+  .creds{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cred-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 24px}
+  .cred-box h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:12px}
+  .cred-box ul{list-style:none;font-size:14px;line-height:1.6}
+  .cred-box ul li{margin-bottom:8px}
+  .cred-box ul li small{color:var(--ink-soft);font-size:12.5px;display:block}
+
+  /* ── 푸터 ───────────────────────────── */
+  footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--ink-soft);font-size:13.5px}
+  footer a{color:var(--ink)}
+
+  @media (max-width:720px){
+    .row{grid-template-columns:1fr;gap:10px}
+    .row .impact{flex-direction:row;flex-wrap:wrap}
+    .paper{grid-template-columns:1fr;gap:8px}
+    .creds{grid-template-columns:1fr}
+    .hero{padding:52px 0 40px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="id">KIM YEONGKYO - AI ENGINEER</span>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#cases">Cases</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ══ 히어로 ══ -->
+  <section class="hero">
+    <p class="eyebrow">PORTFOLIO, 2026</p>
+    <h1>비즈니스 문제를<br><mark>LLM/Agent/ML 기반 AI 서비스</mark>로<br>기획하고, 구축하고, 배포합니다.</h1>
+    <p class="sub">롯데이노베이트에서 <span id="tenure">6년 7개월</span>간 5개 계열사, 9개 이상의 AI/DT 프로젝트를 리딩/수행했습니다. 문제 정의부터 유상 사업 수주, 개발, 배포 후 운영까지 - AI가 실제 매출과 손익으로 이어지는 전 과정을 다룹니다.</p>
+    <div class="facts">
+      <div><b id="tenure-y">6.5년</b>AI/Data 실무</div>
+      <div><b>5개 산업</b>유통/호텔/렌탈/외식/IT</div>
+      <div><b>9+ 프로젝트</b>PM, PL, 파트장</div>
+      <div><b>고려대 인공지능융합학과</b>공학석사 (2026.08)</div>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#projects">프로젝트 보기</a>
+      <a class="btn ghost" href="mailto:titf7200@hanmail.net">이메일 보내기</a>
+    </div>
+  </section>
+
+  <!-- ══ 프로젝트 ══ -->
+  <section id="projects">
+    <div class="sec-head"><h2>Projects</h2><span class="tag">롯데이노베이트 (2020 - 현재)</span></div>
+    <div class="ledger">
+
+      <article class="row">
+        <div class="when"><b>2025.05 - 현재</b>롯데GRS<br>AI챗봇 파트장</div>
+        <div>
+          <h3>AI 챗봇, 캠페인시스템 운영/개발 <small>LLM/RAG, AI Agent</small></h3>
+          <ul>
+            <li>가맹점주가 대화로 <b>점포 실적을 자동 분석하고 캠페인을 추천</b>받는 AI 챗봇의 로직 및 LLM/RAG/AI Agent 시스템 설계/개발 - AWS 환경 기반, FastAPI 백엔드 API</li>
+            <li>데이터/AI 모델 파이프라인(AWS Glue ETL, Bedrock) 운영 및 장애 대응</li>
+            <li>본사/가맹점 대상 <b>CRM 캠페인 시스템</b> 운영/개발, <b>정산 시스템 로직</b> 개발, DB 개발 및 쿼리 튜닝</li>
+            <li>ETL/workflow 운영/개발(Datastage, NiFi), DW/DM 데이터 모델링 및 DQ(Data Quality) 관리</li>
+            <li>AI 챗봇 개선 과업을 직접 도출/설계하여 계약 확장으로 연결</li>
+          </ul>
+          <div class="stack"><span>AWS Bedrock</span><span>FastAPI</span><span>RAG</span><span>Glue ETL</span><span>Datastage</span><span>NiFi</span></div>
+        </div>
+        <div class="impact"><span class="chip">M/M 확장 계약 성사</span></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2025.02 - 2025.04</b>사내</div>
+        <div>
+          <h3>대화형 AI 골드셋 구축 <small>LLM Evaluation</small></h3>
+          <ul>
+            <li>LLM 기반 대화형 AI의 성능을 정량 평가하기 위한 골드셋(정답셋) 설계/구축</li>
+          </ul>
+          <div class="stack"><span>LLM</span><span>Evaluation</span></div>
+        </div>
+        <div class="impact"></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2024.11 - 2025.01</b>호텔롯데</div>
+        <div>
+          <h3>데이터플랫폼(CDP), ML 모델 운영/개발 <small>NLP 예측</small></h3>
+          <ul>
+            <li>NLP를 활용한 <b>Upsell 회귀 예측 모델링/튜닝</b> - 롯데호텔 서울 Upsell 수락률 12%p 개선</li>
+            <li>ETL 개발/운영 및 ML 모델/분석/Tableau 대시보드용 데이터 마트/workflow 개발</li>
+            <li>DW/DM 데이터 모델링, 데이터 추출/검증/생성/삭제 및 DQ 관리</li>
+          </ul>
+          <div class="stack"><span>Regression</span><span>NLP</span><span>CDP</span><span>Tableau</span><span>ETL</span></div>
+        </div>
+        <div class="impact"><span class="chip">Upsell 수락률 12%p ↑</span></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2024.07 - 2024.10</b>롯데GRS</div>
+        <div>
+          <h3>AI 상권 분석 PoC <small>기획, 수주, 수행</small></h3>
+          <ul>
+            <li>Client의 비즈니스 현안을 분석해 AI 과제를 직접 도출/제안, <b>유상 PoC 사업으로 수주</b>하여 수행</li>
+            <li>시계열 회귀 모델링/예측 및 XAI 분석, 점포 클러스터링으로 신규 브랜드 최적 출점지 도출</li>
+          </ul>
+          <div class="stack"><span>Time-series</span><span>XAI</span><span>Clustering</span></div>
+        </div>
+        <div class="impact"><span class="chip">유상 PoC 사업 수주</span></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2023.11 - 2024.03</b>롯데마트</div>
+        <div>
+          <h3>AI 기반 판매량 예측 <small>수요예측</small></h3>
+          <ul>
+            <li>외부영향요인을 반영한 시계열 ML 모델 개발 - <b>외부변수 가설 검정, Feature Engineering, 모델 튜닝</b>으로 예측 성능 최대 30%p 개선 입증</li>
+          </ul>
+          <div class="stack"><span>Time-series ML</span><span>Feature Engineering</span></div>
+        </div>
+        <div class="impact"><span class="chip">성능 최대 30%p ↑</span></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2023.07 - 2024.06</b>사내</div>
+        <div>
+          <h3>분석 대시보드 구축, 최적화 알고리즘 개발 <small>BI, Optimization</small></h3>
+          <ul>
+            <li>제조/유통 결합 영업실적 대시보드 및 데이터마켓 대시보드 <b>총 28종</b>의 데이터 파이프라인/지표 설계/개발</li>
+            <li>LP 기반 마케팅 조건/재무 최적화 알고리즘 개발</li>
+            <li>성과를 롯데그룹 CIO 세미나에서 2년 연속 발표(2023/2024)</li>
+          </ul>
+          <div class="stack"><span>Tableau</span><span>LP Optimization</span></div>
+        </div>
+        <div class="impact"><span class="chip">대시보드 28종</span><span class="chip">CIO 세미나 발표 ×2</span></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2022.06 - 2023.06</b>롯데렌탈<br>개발 PM</div>
+        <div>
+          <h3>데이터플랫폼(CDP), ML 모델 운영/개발 <small>IoT 데이터</small></h3>
+          <ul>
+            <li>고객 클러스터링/IoT 안전운전점수 ML 모델 고도화, 회귀 예측 모델링 및 데이터 분석 과제 - 클러스터링 성능 20%p 개선</li>
+            <li>ETL 개발/운영 및 ML 모델/분석/Tableau 대시보드용 데이터 마트/workflow 개발</li>
+            <li>IoT 센서/견적/계약/고객 데이터의 <b>유효성 검증 로직 개발 등 데이터 품질 관리</b></li>
+            <li>개발 PM으로 일정/이슈/산출물 관리 및 Client/자사/파트너사 간 이해관계 조율</li>
+          </ul>
+          <div class="stack"><span>Clustering</span><span>Regression</span><span>IoT</span><span>ETL</span><span>Tableau</span></div>
+        </div>
+        <div class="impact"><span class="chip">성능 20%p ↑</span><span class="chip">연장 계약 성사</span></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2022.03 - 2022.06</b>롯데GRS<br>수행 PL</div>
+        <div>
+          <h3>개발 시공관리 시스템 구축 <small>상권 분석</small></h3>
+          <ul>
+            <li>Tableau 기반 상권 분석 시스템 구축 - Client 요구사항 정의부터 설계/구축/성능 검증/운영 이관까지 전 단계 리딩</li>
+          </ul>
+          <div class="stack"><span>Tableau</span><span>System Build</span></div>
+        </div>
+        <div class="impact"><span class="chip">사내 최우수 PJT 포상</span></div>
+      </article>
+
+      <article class="row">
+        <div class="when"><b>2020.01 - 2022.02</b>플랫폼사업본부</div>
+        <div>
+          <h3>경영 데이터 분석, KPI 리포팅 <small>Business Data Analyst</small></h3>
+          <ul>
+            <li>사업본부 경영 데이터 관리/분석, 손익계산서(P&amp;L) 기반 재무 분석 및 시뮬레이션</li>
+            <li>사업본부 KPI 개발/관리/리포팅, C-Level/본부장 회의체 보고 자료 작성</li>
+          </ul>
+          <div class="stack"><span>데이터 분석</span><span>P&amp;L 시뮬레이션</span><span>KPI</span></div>
+        </div>
+        <div class="impact"></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══ 케이스 스터디 ══ -->
+  <section id="cases">
+    <div class="sec-head"><h2>Case Studies</h2></div>
+
+    <p class="case-cat">실무</p>
+
+    <article class="case">
+      <h3>롯데GRS AI 챗봇 - 수치 할루시네이션 차단 아키텍처 설계</h3>
+      <p class="meta">LLM/RAG, AI Agent, AWS Bedrock, FastAPI</p>
+
+      <ul class="tldr">
+        <li data-k="문제">점주가 챗봇이 제시하는 매출 수치로 실제 캠페인 예산을 결정하는 서비스 - 숫자 할루시네이션이 곧 잘못된 의사결정</li>
+        <li data-k="결정">Text-to-SQL의 자유 생성 대신, 검증된 쿼리를 파라미터화한 분석 도구 수십 종에 LLM은 라우팅만 담당. 다단계 대화 흐름은 상태 기계로 통제</li>
+        <li data-k="결과">수치 할루시네이션을 구조적으로 차단하고, 커버리지는 운영 로그 분류가 가리키는 방향으로 점진 확장 (세그먼트 지식 → RAG)</li>
+      </ul>
+
+      <details>
+        <summary>전체 과정 읽기</summary>
+
+      <h4>상황</h4>
+      <ul class="pts">
+        <li>프랜차이즈 점주/본사 마케터가 점포 데이터를 분석하고 CRM 캠페인을 설계하는 LLM 챗봇 운영/개선</li>
+        <li>사용자는 데이터 비전문가 - 챗봇이 제시한 매출 수치가 캠페인 예산/타겟 결정의 직접 근거</li>
+        <li>수치 할루시네이션은 품질 문제가 아니라 잘못된 의사결정으로 직결. 점포 분석이 캠페인 생성의 근거가 되므로 분석 오류가 최종 산출물까지 전파되는 구조</li>
+        <li>시스템 전반은 AWS 위에서 구동 - LLM은 Bedrock, 데이터/모델 파이프라인은 Glue ETL 등으로 구성</li>
+      </ul>
+
+      <h4>분석 기능 설계 - 사전 정의 도구 + LLM 라우팅</h4>
+      <ul class="pts">
+        <li>선택지 비교 - <b>Text-to-SQL</b>: 커버리지 넓음, 그러나 잘못된 집계가 그럴듯한 문장으로 포장되는 최악의 실패 모드 / <b>사전 정의 도구 + 라우팅</b>: 커버리지 제한, 대신 수치 정확성을 구조적으로 보장</li>
+        <li>분석 니즈가 대상 축(내 점포 → 인근 점포 → 경쟁 브랜드 → 상품 → 캠페인 성과) × 관점 축(추이/시간대/요일/채널/전년 대비)의 유한한 조합으로 수렴함을 확인 → 후자 선택</li>
+        <li>기존 시나리오를 트리 구조의 분석 레벨로 재설계, 수십 종의 파라미터화된 분석 도구로 구현 - 각 도구의 쿼리는 사전 최적화/검증 후 고정</li>
+        <li>데이터 부재 시 답을 지어내는 대신 명시적 예외로 "데이터 없음" 응답 - 실패조차 설계된 경로로만 발생</li>
+      </ul>
+
+      <h4>대화 흐름 제어 - 팔로업 UI/상태 전이 규칙</h4>
+      <ul class="pts">
+        <li>매 분석 응답 뒤 팔로업 생성 에이전트가 트리상 인접한 다음 분석 경로를 버튼으로 제시 - 자유 입력 없이도 의도한 분석에 도달하는 경로를 UI 차원에서 보장</li>
+        <li>캠페인 생성 등 다단계 흐름은 명시적 상태 전이 규칙으로 통제 - LLM의 재량은 각 단계 내 생성 품질에 한정, 흐름의 골격은 결정적(deterministic)으로 유지</li>
+      </ul>
+
+      <h4>운영 로그 기반 검증/개선</h4>
+      <ul class="pts">
+        <li>일일 사용자 프롬프트 전량을 다층 분류 체계로 직접 분류하며 판정 선례 축적, 세션 이탈 기준을 정의해 "답을 못 얻고 떠나는 질의 유형" 추적</li>
+        <li>대표 갭 - 타겟 세그먼트 정의/조건 질의: 텍스트 중심 지식이라 정형 도구 추가 대신 지식 베이스 RAG 확장이 갱신 비용/응답 품질 양면에서 유리하다고 판단</li>
+        <li>분류 작업 자체를 파이프라인으로 이관 중 - LLM API 배치 분류(분류 체계/판정 선례 few-shot 주입, JSON 스키마 강제) 후 분석 마트 적재, 개선 우선순위를 대시보드에서 상시 확인</li>
+      </ul>
+
+      <h4>결과</h4>
+      <ul class="pts">
+        <li>정형 수치 = 검증된 쿼리 도구, 비정형 지식 = RAG, 대화 흐름 = 상태 기계/팔로업 UI로 책임 분리 - 수치 할루시네이션을 구조적으로 차단하며 커버리지는 운영 데이터 방향으로 점진 확장</li>
+        <li><b>LLM 제품의 신뢰성은 프롬프트가 아니라 "LLM에게 무엇을 맡기지 않을지"를 정하는 아키텍처에서 나옴</b></li>
+        <li>개선 우선순위는 감이 아니라 사용자 로그의 분류 체계에서 나옴</li>
+      </ul>
+
+      </details>
+    </article>
+
+    <article class="case">
+      <h3>호텔롯데 Upsell 예측 - 예측 모델과 텍스트 키워드 신호의 워크플로우 결합</h3>
+      <p class="meta">회귀 예측, NLP(TF-IDF), Workflow, CDP</p>
+
+      <ul class="tldr">
+        <li data-k="문제">롯데호텔 서울의 Upsell 제안 수락률 개선 - 정형 변수 기반 예측만으로는 타겟 정밀도 개선 여지가 정체</li>
+        <li data-k="결정">수락 성공/실패 그룹의 예약 코멘트를 TF-IDF로 비교 분석해 수락 신호 키워드를 도출하고, 회귀 예측 모델이 선별한 고객군에 키워드 추출 결과를 워크플로우 단에서 결합하는 2단 타겟팅 구성</li>
+        <li data-k="결과">Upsell 수락률 12%p 개선</li>
+      </ul>
+
+      <details>
+        <summary>전체 과정 읽기</summary>
+
+      <h4>가설과 텍스트 분석</h4>
+      <ul class="pts">
+        <li>가설 - 고객이 예약 시 남기는 코멘트(자연어)에 Upsell 수락 성향의 신호가 담겨 있다</li>
+        <li>수락 성공 그룹과 실패 그룹으로 데이터를 분리하고, 코멘트 텍스트의 TF-IDF 키워드 분포를 비교 - 실패 그룹 대비 성공 그룹에서 특징적으로 등장하는 키워드 셋 도출</li>
+        <li>기법 선택 - 탐색 단계에서 신호의 존재부터 검증하는 것이 목적이었으므로, 결과가 해석 가능한 키워드로 나오고 운영 반영이 즉시 가능한 TF-IDF를 적용</li>
+      </ul>
+
+      <h4>타겟팅 워크플로우 설계</h4>
+      <ul class="pts">
+        <li>정형 변수 기반 회귀 예측 모델로 수락 확률 상위 고객군을 선별하고, 여기에 키워드 추출 결과를 워크플로우 단에서 결합해 타겟을 정밀화하는 2단 구성</li>
+        <li>텍스트 신호를 모델 내부 피처가 아닌 워크플로우 결합으로 설계 - 코멘트가 없는 고객에 대한 결측 처리 부담이 없고, 키워드 셋 갱신 시 모델 재학습이 불필요하며, 현업이 룰을 해석/조정 가능한 구조</li>
+        <li>결합 구성에 맞춰 예측 모델과 키워드 셋을 전체 튜닝하며 개선 검증</li>
+      </ul>
+
+      <h4>결과</h4>
+      <ul class="pts">
+        <li>롯데호텔 서울 Upsell 수락률 12%p 개선으로 연결</li>
+        <li>비정형 신호는 반드시 모델 안에 넣어야 하는 것이 아니라, 데이터 특성과 운영 구조에 맞는 결합 지점을 설계하는 것까지가 모델링이라는 것을 확인</li>
+      </ul>
+
+      </details>
+    </article>
+
+    <article class="case">
+      <h3>롯데마트 판매량 예측 - 외부영향요인 검증 및 시계열 모델 반영</h3>
+      <p class="meta">Time-series(Prophet), 통계 검정, Feature Engineering</p>
+
+      <ul class="tldr">
+        <li data-k="문제">내부 데이터만으로 설명되지 않는 판매량 변동 - 외부영향요인 후보는 수십 개, 무엇을 반영할지 통계적 근거가 필요</li>
+        <li data-k="결정">외부변수 후보를 유형별 통계 검정으로 스크리닝 → 차원 축소로 예비 변수 10개 내외 압축 → Prophet 시계열 모델에서 하나씩 추가/제거하며 기여 검증</li>
+        <li data-k="결과">외부변수 반영 시 예측 성능 최대 30%p 개선 입증</li>
+      </ul>
+
+      <details>
+        <summary>전체 과정 읽기</summary>
+
+      <h4>문제 정의</h4>
+      <ul class="pts">
+        <li>내부 요인만으로 설명되지 않는 판매량 변동을 외부영향요인으로 보완하는 과제 - 후보 변수가 수십 개에 달해, 실제 기여하는 변수를 통계적 근거로 선별해 반영하는 것이 핵심</li>
+      </ul>
+
+      <h4>외부변수 선별 파이프라인</h4>
+      <ul class="pts">
+        <li><b>1차 스크리닝</b> - 변수 유형에 맞는 통계적 검정으로 판매량과의 연관성을 사전 확인: 연속형 변수는 상관 분석, 범주형 변수는 카이제곱 검정 등을 적용해 근거 없는 후보를 제외</li>
+        <li><b>차원 축소</b> - 스크리닝을 통과한 후보를 압축해 예비 변수를 10개 내외로 선별</li>
+        <li><b>축차 검증</b> - 예비 변수를 하나씩 추가/제거하며 예측 성능 기여를 개별 검증, 기여가 입증된 변수만 반영 대상으로 확정</li>
+      </ul>
+
+      <h4>시계열 모델링</h4>
+      <ul class="pts">
+        <li>Prophet 기반 시계열 모델 구축 - 트렌드/계절성 분해 구조에 선별한 외부변수를 회귀 변수(regressor)로 결합</li>
+        <li>변수 조합별 예측 성능을 비교하며 가설 검정/Feature Engineering/모델 튜닝 반복</li>
+      </ul>
+
+      <h4>결과</h4>
+      <ul class="pts">
+        <li>외부변수 반영 시 예측 성능 최대 30%p 개선을 정량적으로 입증 - 반영할 외부변수 셋과 통계적 근거 확보</li>
+        <li>변수는 많을수록 좋은 것이 아니라, 검정 → 축소 → 축차 검증의 선별 체계가 성능과 설명력을 함께 만든다는 것을 확인</li>
+      </ul>
+
+      </details>
+    </article>
+
+    <p class="case-cat">대학원</p>
+
+    <article class="case">
+      <h3>학위논문 - LLM 에이전트 라우팅의 강화학습 정책 대체 연구</h3>
+      <p class="meta">강화학습(Double DQN), LLM Agent, AWS Bedrock, 1D-CNN</p>
+
+      <ul class="tldr">
+        <li data-k="문제">ReAct류 에이전트는 매 단계 "다음 행동 결정(라우팅)"까지 LLM 호출에 의존 - 이 라우팅 추론이 전체 비용의 41~54%를 소모함을 정량적으로 확인</li>
+        <li data-k="결정">응답 생성 과정을 6개 행동의 MDP로 정형화하고, 라우팅 판단만 경량 Double DQN 정책으로 대체 - LLM은 각 단계의 생성 품질에만 사용</li>
+        <li data-k="결과">Bedrock 실환경에서 응답 품질 0.793을 질의당 $0.0055로 달성 - LLM 라우터(ReAct-Opus: 0.696, $0.0131) 대비 더 높은 품질을 절반 이하 비용으로</li>
+      </ul>
+
+      <details>
+        <summary>전체 과정 읽기</summary>
+
+      <h4>문제 정의</h4>
+      <ul class="pts">
+        <li>산업 설비 예지보전 도메인의 질의응답 에이전트 대상 - ReAct 방식은 매 단계 "다음에 뭘 할지"를 LLM에게 다시 묻는 구조</li>
+        <li>도구 실행 비용보다 라우팅 고민 비용이 더 큰 역전 발생 - 측정 결과 라우팅 추론이 전체 비용의 41~54%</li>
+        <li>반복적 산업 질의 환경에서는 라우팅 판단의 상당수가 패턴화 가능하다는 가설에서 출발</li>
+      </ul>
+
+      <h4>방법</h4>
+      <ul class="pts">
+        <li>응답 생성 과정을 Query / Retrieve / Verify / AskBack / Diagnose / Respond 6개 행동의 MDP로 정형화</li>
+        <li>Double DQN 정책으로 질의 유형별 최적 행동 경로 학습</li>
+        <li>설비 진단 요소로 CWRU 베어링 진동 데이터셋 + 1D-CNN 분류기 결합, Text-to-SQL 등 실제 도구 호출을 포함한 파이프라인 구현</li>
+      </ul>
+
+      <h4>검증</h4>
+      <ul class="pts">
+        <li><b>Phase 1</b> - 통제 시뮬레이션: 9개 질의 유형/147개 질의셋 × 6개 비교 정책(고정 경로, 규칙 기반, 지도학습 분류기, Contextual Bandit 등) × 5개 시드 → Strict Accuracy 0.841</li>
+        <li><b>Phase 2</b> - AWS Bedrock 실제 LLM 환경에서 응답 품질과 비용 동시 측정</li>
+      </ul>
+
+      <h4>결과</h4>
+      <ul class="pts">
+        <li>품질 0.793을 질의당 $0.0055로 달성 - ReAct-Opus(0.696, $0.0131)/ReAct-Sonnet(0.683, $0.0110) 대비 <b>더 높은 품질을 절반 이하의 비용으로</b></li>
+        <li>결론은 롯데GRS 챗봇 케이스와 같은 방향 - 반복 가능한 판단은 LLM 밖으로 빼는 것이 품질/비용 양쪽에 유리</li>
+        <li>이 아이디어를 B2C 캠페인 도메인으로 확장한 것이 학회 포스터 연구(Contextual Bandit 라우터, 장려상)</li>
+      </ul>
+
+      </details>
+    </article>
+
+    <article class="case">
+      <h3>AI 심리상담 챗봇 - 백엔드/UI 단독 설계/구현 및 AWS 배포</h3>
+      <p class="meta">개인 프로젝트, LLM API, FastAPI, Streamlit, AWS</p>
+
+      <ul class="tldr">
+        <li data-k="문제">LLM API 기반 상담 서비스를 단독 설계/구현 - 상담 톤의 일관성과 멀티턴 문맥 유지가 핵심 과제</li>
+        <li data-k="결정">FastAPI REST 백엔드와 Streamlit 채팅 UI를 분리 구성하고, LLM API에 공감/경청 페르소나와 Few-shot 예시로 응답 톤 제어</li>
+        <li data-k="결과">세션 상태 기반 멀티턴 이력 관리로 문맥을 반영한 연속 상담 구현</li>
+      </ul>
+
+      <a class="demo-btn" href="https://REPLACE-WITH-STREAMLIT-URL" target="_blank" rel="noopener">라이브 데모 실행 →</a>
+
+      <details>
+        <summary>전체 과정 읽기</summary>
+
+      <h4>아키텍처</h4>
+      <ul class="pts">
+        <li>FastAPI 기반 REST 백엔드 - Pydantic 스키마로 멀티턴 메시지 구조 정의</li>
+        <li>Streamlit(streamlit-chat) 기반 채팅 UI를 분리 구성, HTTP API로 연동</li>
+        <li>AWS 환경에 웹 서비스로 배포</li>
+      </ul>
+
+      <h4>프롬프트 엔지니어링</h4>
+      <ul class="pts">
+        <li>LLM API에 공감/경청 중심의 심리상담 페르소나를 시스템 프롬프트로 부여</li>
+        <li>Few-shot 대화 예시를 포함해 상담 톤과 응답 일관성 제어</li>
+      </ul>
+
+      <h4>대화 관리</h4>
+      <ul class="pts">
+        <li>세션 상태(session state) 기반으로 멀티턴 대화 이력을 유지/전달 - 문맥을 반영한 연속 상담 구현</li>
+      </ul>
+
+      </details>
+    </article>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </section>
+
+  <!-- ══ 연구 ══ -->
+  <section id="research">
+    <div class="sec-head"><h2>Research</h2><span class="tag">Agentic AI, 강화학습, 시계열 이상탐지</span></div>
+    <div class="papers">
+      <div class="paper">
+        <span class="kind">석사 학위논문</span>
+        <div>
+          <h3>산업 설비 예지보전을 위한 AI 에이전트 응답 생성 경로의 강화학습 기반 최적화 연구</h3>
+          <p>ReAct류 에이전트가 매 단계 라우팅까지 LLM 호출에 의존하는 비용 구조를 문제로 정의하고, 라우팅 판단을 경량 강화학습 정책(Double DQN)으로 대체. 시뮬레이션과 AWS Bedrock 실환경 2단계 실험으로 검증해, LLM 라우터 대비 더 높은 응답 품질을 절반 이하의 질의당 비용으로 달성. (2026.08 졸업)</p>
+          <div class="links"><a href="papers/thesis.pdf" target="_blank" rel="noopener">논문 PDF ↓</a></div>
+        </div>
+      </div>
+      <div class="paper">
+        <span class="kind">학회 수상</span>
+        <div>
+          <h3>B2C 캠페인 Agent 오케스트레이션 - Function Calling/RAG 결합 성능 분석과 강화학습 기반 최적화</h3>
+          <p>캠페인 챗봇 환경에서 SQL Function Calling(정량)과 RAG(정성)를 결합하는 세 가지 오케스트레이션 전략(ToolOnly / SimpleFusion / CoordinatedFusion)을 동일 통제 환경에서 정량 비교하고, 질의 피처 기반 Contextual Multi-Armed Bandit 라우터를 Policy Gradient로 학습해 질의별 최적 전략을 자동 선택하도록 설계. LLM 파인튜닝 없이 라우터만으로 정책 정합도를 단일 최고 전략 대비 향상(0.182 → 0.194). 학위논문의 강화학습 라우팅 아이디어를 실무 B2C 도메인에 확장한 단독 저자 연구. (한국자료분석학회 2025 동계학술대회, 2025.11)</p>
+          <span class="chip">포스터 부문 장려상</span>
+          <div class="links"><a href="papers/proceeding.pdf" target="_blank" rel="noopener">프로시딩 PDF ↓</a></div>
+        </div>
+      </div>
+      <div class="paper">
+        <span class="kind">국제 학술대회</span>
+        <div>
+          <h3>Contextual Health State Inference from Lifelog Data Using LLM</h3>
+          <p>라이프로그 데이터 기반 건강 상태 추론에 LLM을 적용한 공동 연구. 데이터 전처리 파이프라인 설계 및 ML 모델링 담당. (ICTC 2024, pp. 816-821)</p>
+          <div class="links"><a href="https://ieeexplore.ieee.org/document/10827013/" target="_blank" rel="noopener">IEEE Xplore →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 학력 ══ -->
+  <section id="education">
+    <div class="sec-head"><h2>Education</h2></div>
+    <div class="edu">
+      <div class="edu-item">
+        <div class="head">
+          <h3>고려대학교 인공지능융합학과 공학석사</h3>
+          <span class="when">2024.03 - 2026.08</span>
+        </div>
+        <p>GPA 4.46 / 4.5, 연구 분야: Agentic AI 및 강화학습, 시계열 이상탐지<br>수강: 심층강화학습, 고급기계학습, 베이지안 그래프 모델링, 통계적학습개론, 텍스트마이닝(NLP), 자료구조, 컴퓨터 구조 등</p>
+        <ul class="projects">
+          <li data-k="학위논문"><b>산업 설비 예지보전을 위한 AI 에이전트 응답 생성 경로의 강화학습 기반 최적화 연구</b> - 졸업 연구 (2026.08)</li>
+          <li data-k="연구"><b>B2C 캠페인 Agent 오케스트레이션</b> - Function Calling/RAG 결합 성능 분석과 강화학습 기반 최적화, 한국자료분석학회 포스터 부문 장려상</li>
+          <li data-k="연구"><b>라이프로그 기반 건강 상태 추론 공동 연구</b> - GPT-4로 센서 데이터를 문맥화한 대화형 데이터셋 생성, Llama-3-8B LoRA 파인튜닝 결합. 데이터 전처리 파이프라인 설계 및 ML 모델링 담당, ICTC 2024 게재</li>
+          <li data-k="팀 PJT"><b>분류 모델 성능 향상을 위한 피처 엔지니어링</b> - 범주형 변수를 자연어 문장화해 언어모델 임베딩(+PCA)으로 표현, One-hot 대비 성능을 CV 파이프라인 안에서 엄밀 비교 검증</li>
+          <li data-k="개인 PJT"><b>AI 심리상담 챗봇 애플리케이션</b> - FastAPI 기반 REST 백엔드와 Streamlit 채팅 UI를 분리 구성해 단독 구현/AWS 배포. LLM API에 공감/경청 중심 상담 페르소나와 Few-shot 예시를 적용, 멀티턴 세션 관리</li>
+        </ul>
+      </div>
+      <div class="edu-item">
+        <div class="head">
+          <h3>인하대학교 산업경영공학, 기계공학 학사</h3>
+          <span class="when">2013.03 - 2020.02</span>
+        </div>
+        <p>GPA 3.6 / 4.5, 수강: (산업공학) 확률통계/선형대수, 데이터베이스/프로그래밍, 머신러닝/데이터 분석, OR / (기계공학) 4대 역학, 수치해석, CAD/CAE, 기계요소설계 등</p>
+        <ul class="projects">
+          <li data-k="졸업PJT"><b>자연어처리 및 앙상블 회귀 모델링</b></li>
+          <li data-k="프로젝트"><b>클러스터링 모델 활용 비즈니스 모델 설계 및 ML 모델 구현</b></li>
+          <li data-k="연수"><b>한국기술사회 데이터사이언스 교육 이수</b> (2018), <b>삼성전자 Facility Engineering Experience Course 이수</b> (2018), <b>한국반도체기술교육원 반도체 공정 실습</b> (2019)</li>
+          <li data-k="수상"><b>I-GPS 실전문제해결 경진대회 대상</b> (2018, 과학기술정보통신부), 발주처: 씨앤비멀티플렉스(롯데시네마/CJ CGV), 주제: 빅데이터 분석 기반 영화 흥행도 예측</li>
+          <li data-k="인턴십"><b>SISTECH</b> - PLC 시퀀스 제어 교육 수료, 생산설비 제어 도메인 경험 (2019)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 스킬 ══ -->
+  <section id="skills">
+    <div class="sec-head"><h2>Skills</h2></div>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>AI, LLM</h3>
+        <ul><li>LLM, RAG, AI Agent</li><li>LangGraph, Fine-tuning</li><li>FastAPI, Streamlit</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>ML/DL, OPTIMIZATION</h3>
+        <ul><li>시계열 예측, 이상탐지</li><li>강화학습 등 ML/DL 전반</li><li>수학적 최적화</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>CLOUD, DATA</h3>
+        <ul><li>AWS Bedrock, Glue, ECS, Lambda</li><li>SQL - MySQL, Trino, PostgreSQL, Athena</li><li>Spark, Airflow, Datastage, NiFi</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>BI, ANALYTICS</h3>
+        <ul><li>Tableau (대시보드 28종)</li><li>통계 분석, P&amp;L 시뮬레이션</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 자격증, 수상 ══ -->
+  <section id="creds">
+    <div class="sec-head"><h2>Certificates &amp; Awards</h2></div>
+    <div class="creds">
+      <div class="cred-box">
+        <h3>CERTIFICATES</h3>
+        <ul>
+          <li>빅데이터분석기사</li>
+          <li>SQLD, ADsP</li>
+          <li>Tableau Desktop Specialist</li>
+          <li>AWS Cloud Practitioner</li>
+          <li>제조품질전문가 2급, 통계적공정관리전문가 2급</li>
+          <li>식스시그마 Black Belt</li>
+          <li>어학: TOEIC 890</li>
+        </ul>
+      </div>
+      <div class="cred-box">
+        <h3>AWARDS</h3>
+        <ul>
+          <li>2025 한국자료분석학회 동계학술대회 포스터 부문 장려상<small>B2C 캠페인 Agent 오케스트레이션</small></li>
+          <li>롯데이노베이트 26주년 우수상 (2022)<small>롯데GRS 개발 시공관리 시스템 구축</small></li>
+          <li>I-GPS 실전문제해결 경진대회 대상 (2018, 과학기술정보통신부)<small>발주처: 씨앤비멀티플렉스(롯데시네마/CJ CGV), 주제: 빅데이터 분석 기반 영화 흥행도 예측</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>김영교 | <a href="mailto:titf7200@hanmail.net">titf7200@hanmail.net</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 재직 시작일. 이직/퇴사 시 END에 'YYYY-MM' 지정하면 그 시점에서 고정됨.
+  var START = '2020-01';
+  var END = null; // 예: '2026-10'
+
+  var s = START.split('-'), now = END ? END.split('-') : null;
+  var sy = +s[0], sm = +s[1];
+  var d = new Date();
+  var ey = now ? +now[0] : d.getFullYear();
+  var em = now ? +now[1] : d.getMonth() + 1;
+
+  var months = (ey - sy) * 12 + (em - sm) + 1; // 재직 월수 (시작월 포함)
+  var y = Math.floor(months / 12), m = months % 12;
+
+  var t = document.getElementById('tenure');
+  if (t) t.textContent = m === 0 ? (y + '년') : (y + '년 ' + m + '개월');
+
+  var ty = document.getElementById('tenure-y');
+  if (ty) ty.textContent = (Math.floor(months / 12 * 10) / 10).toFixed(1).replace(/\.0$/, '') + '년';
+})();
+</script>
+</body>
+</html>
