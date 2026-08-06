@@ -498,13 +498,13 @@
     </article>
 
     <article class="case">
-      <h3>AI 심리상담 챗봇 - 백엔드/UI 단독 설계/구현 및 AWS 배포</h3>
-      <p class="meta">개인 프로젝트, LLM API, FastAPI, Streamlit, AWS</p>
+      <h3>AI 심리상담 챗봇 - 동적 Few-shot 검색 설계 및 AWS 배포</h3>
+      <p class="meta">개인 프로젝트, LLM API, Embedding 검색, FastAPI, Streamlit, AWS</p>
 
       <ul class="tldr">
-        <li data-k="문제">LLM API 기반 상담 서비스를 단독 설계/구현 - 상담 톤의 일관성과 멀티턴 문맥 유지가 핵심 과제</li>
-        <li data-k="결정">FastAPI REST 백엔드와 Streamlit 채팅 UI를 분리 구성하고, LLM API에 공감/경청 페르소나와 Few-shot 예시로 응답 톤 제어</li>
-        <li data-k="결과">세션 상태 기반 멀티턴 이력 관리로 문맥을 반영한 연속 상담 구현</li>
+        <li data-k="문제">LLM API 기반 상담 서비스를 단독 설계/구현/배포 - 상담 톤의 일관성 확보와 공개 데모의 안전한 운영이 과제</li>
+        <li data-k="결정">AI Hub 감성대화말뭉치에서 감정 분류별로 큐레이션한 300개 예시 풀을 구축하고, 매 요청 사용자 발화를 임베딩해 감정군과 유사도 기반으로 top-3 예시를 동적 주입하는 Few-shot 검색 구조 설계</li>
+        <li data-k="결과">FastAPI(무상태) + Streamlit + Nginx 구성으로 AWS 배포, 호출 제한과 위기 대응 프로토콜을 갖춰 공개 운영 중</li>
       </ul>
 
       <a class="demo-btn" href="https://ai-counselor.duckdns.org" target="_blank" rel="noopener">라이브 데모 실행 →</a>
@@ -512,22 +512,25 @@
       <details>
         <summary>전체 과정 읽기</summary>
 
+      <h4>동적 Few-shot 프롬프팅</h4>
+      <ul class="pts">
+        <li>AI Hub 감성대화말뭉치 6,640개 대화에서 감정 6대분류(분노/슬픔/불안/상처/당황/기쁨)별로 대표 상담 예시 300개를 큐레이션, 임베딩과 함께 예시 풀로 구축</li>
+        <li>매 요청 사용자 발화를 임베딩해 감정군을 결정 - 감정 단어가 명시되면 해당 감정군, 아니면 최근접 이웃 다수결. 주제만 비슷하고 감정이 다른 예시가 섞이는 것을 방지</li>
+        <li>결정된 감정군 안에서 유사도 top-3 대화를 실제 user/assistant 메시지 쌍으로 프롬프트에 주입, 검색 실패 시 기본 예시로 폴백</li>
+        <li>예시 블록과 실제 대화 사이에 경계 메시지를 두어, 예시가 스타일 참조로만 쓰이도록 통제</li>
+      </ul>
+
       <h4>아키텍처</h4>
       <ul class="pts">
-        <li>FastAPI 기반 REST 백엔드 - Pydantic 스키마로 멀티턴 메시지 구조 정의</li>
-        <li>Streamlit(streamlit-chat) 기반 채팅 UI를 분리 구성, HTTP API로 연동</li>
-        <li>AWS 환경에 웹 서비스로 배포</li>
+        <li>FastAPI 기반 REST 백엔드 - Pydantic 스키마로 멀티턴 메시지 구조 정의, 무상태(stateless)로 설계해 클라이언트가 전체 대화 이력 전송</li>
+        <li>Streamlit 기반 채팅 UI를 분리 구성해 HTTP API로 연동, 세션 상태로 멀티턴 이력 관리</li>
+        <li>AWS EC2 + Docker Compose(backend/frontend/Nginx) 구성, HTTPS(Let's Encrypt) 적용해 배포</li>
       </ul>
 
-      <h4>프롬프트 엔지니어링</h4>
+      <h4>공개 데모 운영 설계</h4>
       <ul class="pts">
-        <li>LLM API에 공감/경청 중심의 심리상담 페르소나를 시스템 프롬프트로 부여</li>
-        <li>Few-shot 대화 예시를 포함해 상담 톤과 응답 일관성 제어</li>
-      </ul>
-
-      <h4>대화 관리</h4>
-      <ul class="pts">
-        <li>세션 상태(session state) 기반으로 멀티턴 대화 이력을 유지/전달 - 문맥을 반영한 연속 상담 구현</li>
+        <li>남용 방지 - 세션당 메시지 수, 일일 전체 호출량, 응답 토큰, 입력 길이 제한을 백엔드에서 강제</li>
+        <li>위기 신호 감지 시 상담을 이어가는 대신 전문기관(자살예방 상담전화 109) 안내로 전환하는 프로토콜을 시스템 프롬프트에 내장</li>
       </ul>
 
       </details>
@@ -593,7 +596,7 @@
           <li data-k="연구"><b>B2C 캠페인 Agent 오케스트레이션</b> - Function Calling/RAG 결합 성능 분석과 강화학습 기반 최적화, 한국자료분석학회 포스터 부문 장려상</li>
           <li data-k="연구"><b>라이프로그 기반 건강 상태 추론 공동 연구</b> - GPT-4로 센서 데이터를 문맥화한 대화형 데이터셋 생성, Llama-3-8B LoRA 파인튜닝 결합. 데이터 전처리 파이프라인 설계 및 ML 모델링 담당, ICTC 2024 게재</li>
           <li data-k="팀 PJT"><b>분류 모델 성능 향상을 위한 피처 엔지니어링</b> - 범주형 변수를 자연어 문장화해 언어모델 임베딩(+PCA)으로 표현, One-hot 대비 성능을 CV 파이프라인 안에서 엄밀 비교 검증</li>
-          <li data-k="개인 PJT"><b>AI 심리상담 챗봇 애플리케이션</b> - FastAPI 기반 REST 백엔드와 Streamlit 채팅 UI를 분리 구성해 단독 구현/AWS 배포. LLM API에 공감/경청 중심 상담 페르소나와 Few-shot 예시를 적용, 멀티턴 세션 관리</li>
+          <li data-k="개인 PJT"><b>AI 심리상담 챗봇 애플리케이션</b> - 감성대화말뭉치 기반 동적 Few-shot 검색(임베딩 유사도 + 감정 분류)을 적용한 상담 챗봇을 FastAPI + Streamlit으로 단독 구현, AWS 배포</li>
         </ul>
       </div>
       <div class="edu-item">
