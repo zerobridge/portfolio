@@ -205,7 +205,7 @@
             <li>본사/가맹점 대상 <b>CRM 캠페인 시스템</b> 운영/개발, <b>정산 시스템 로직</b> 개발, DB 개발 및 쿼리 튜닝</li>
             <li>AI 챗봇 개선 과업을 직접 도출/설계하여 계약 확장으로 연결</li>
           </ul>
-          <div class="stack"><span>AWS Bedrock</span><span>Glue ETL</span><span>FastAPI</span><span>RAG</span><span>Datastage</span><span>NiFi</span></div>
+          <div class="stack"><span>AWS Bedrock</span><span>Glue ETL</span><span>FastAPI</span><span>RAG</span><span>MySQL</span><span>DataStage</span></div>
         </div>
         <div class="impact"><span class="chip">M/M 확장 계약 성사</span></div>
       </article>
@@ -225,13 +225,13 @@
       <article class="row">
         <div class="when"><b>2024.11 - 2025.01</b>호텔롯데</div>
         <div>
-          <h3>데이터플랫폼(CDP), ML 모델 운영/개발 <small>CDP, NLP 예측</small></h3>
+          <h3>데이터플랫폼(CDP), ML 모델 운영/개발 <small>CDP, 데이터 마트/ML 파이프라인 운영</small></h3>
           <ul>
-            <li><b>ETL 개발/운영</b> 및 ML 모델/분석/Tableau 대시보드용 <b>데이터 마트/workflow 개발</b></li>
+            <li><b>ETL 개발/운영</b> 및 분석/대시보드용 <b>데이터 마트</b>, 웹행동 데이터 기반 고객 통합, 웹크롤링 파이프라인 개발</li>
+            <li><b>ML 모델 운영/개발 및 모델 서빙</b> - Upsell 예측(회귀, NLP 활용 튜닝으로 수락률 12%p 개선), 리워즈 승급 가망 고객 예측(파이프라인 운영)</li>
             <li><b>DW/DM 데이터 모델링</b>, 데이터 추출/검증/생성/삭제 및 <b>DQ 관리</b></li>
-            <li>NLP를 활용한 Upsell 회귀 예측 모델링/튜닝 - 롯데호텔 서울 Upsell 수락률 12%p 개선</li>
           </ul>
-          <div class="stack"><span>CDP</span><span>ETL</span><span>DW/DM</span><span>Regression</span><span>NLP</span><span>Tableau</span></div>
+          <div class="stack"><span>Treasure Data</span><span>DigDag</span><span>Trino</span><span>Regression</span><span>NLP</span><span>Tableau</span></div>
         </div>
         <div class="impact"><span class="chip">Upsell 수락률 12%p ↑</span></div>
       </article>
@@ -278,14 +278,15 @@
       <article class="row">
         <div class="when"><b>2022.06 - 2023.06</b>롯데렌탈<br>개발 PM</div>
         <div>
-          <h3>데이터플랫폼(CDP), ML 모델 운영/개발 <small>CDP, IoT 데이터</small></h3>
+          <h3>데이터플랫폼(CDP), ML 모델 운영/개발 <small>CDP, 멀티소스 통합/ML 파이프라인 운영</small></h3>
           <ul>
             <li><b>ETL 개발/운영</b> 및 ML 모델/분석/Tableau 대시보드용 <b>데이터 마트/workflow 개발</b></li>
-            <li>IoT 센서/견적/계약/고객 데이터의 <b>유효성 검증 로직 개발 등 데이터 품질 관리</b></li>
-            <li>고객 클러스터링/IoT 안전운전점수 ML 모델 고도화, 회귀 예측 모델링 및 데이터 분석 과제 - 클러스터링 성능 20%p 개선</li>
+            <li><b>고객 클러스터링 모델 고도화</b> - 군집 ID 매핑 로직 개선으로 클러스터링 성능 20%p 개선</li>
+            <li>IoT 안전운전점수 회귀 예측 모델 <b>운영</b> 및 현업 요청 데이터 분석 과제 수행</li>
+            <li>IoT 센서, 웹행동, 고객/견적/계약 등 <b>이종 데이터의 유효성 검증 로직 개발 등 데이터 품질 관리</b></li>
             <li>개발 PM으로 일정/이슈/산출물 관리 및 Client/자사/파트너사 간 이해관계 조율</li>
           </ul>
-          <div class="stack"><span>CDP</span><span>ETL</span><span>IoT</span><span>Clustering</span><span>Regression</span><span>Tableau</span></div>
+          <div class="stack"><span>Treasure Data</span><span>DigDag</span><span>Trino</span><span>Clustering</span><span>Regression</span><span>IoT</span><span>Tableau</span></div>
         </div>
         <div class="impact"><span class="chip">성능 20%p ↑</span><span class="chip">연장 계약 성사</span></div>
       </article>
@@ -371,6 +372,91 @@
         <li>정형 수치 = 검증된 쿼리 도구, 비정형 지식 = RAG 조회, 대화 흐름 = 상태 기계/팔로업 UI로 책임 분리 - 수치 할루시네이션을 구조적으로 차단하며 커버리지는 운영 데이터 방향으로 점진 확장</li>
         <li><b>LLM 제품의 신뢰성은 프롬프트가 아니라 "LLM에게 무엇을 맡기지 않을지"를 정하는 아키텍처에서 나옴</b></li>
         <li>개선 우선순위는 감이 아니라 사용자 로그의 분류 체계에서 나옴</li>
+      </ul>
+
+      </details>
+    </article>
+
+    <article class="case">
+      <h3>롯데GRS 정산/캠페인 시스템 - 데이터 정합성과 처리 성능 개선</h3>
+      <p class="meta">ETL, MySQL, DataStage, Shell Script, 쿼리 튜닝</p>
+
+      <ul class="tldr">
+        <li data-k="문제">가맹점, SAP, E-accounting 등 소스별 데이터 불일치와 중복 계산으로 정산 정합성이 저하된 상태 - 정산은 실제 청구 금액이라 오차가 곧 업무 리스크</li>
+        <li data-k="결정">정산 프로시저와 ETL 로직을 전면 재설계해 주요 화면의 업무로직을 공통 SP로 통합하고, 대사 로직과 오차 내역을 아카이빙/문서화해 점검 가능한 구조로 전환</li>
+        <li data-k="결과">정산 결함률 75%에서 0%, 상세 조회 69초에서 1.5초, 수작업 추출 월 7건에서 0건</li>
+      </ul>
+
+      <details>
+        <summary>전체 과정 읽기</summary>
+
+      <h4>정산 데이터 정합성 확보</h4>
+      <ul class="pts">
+        <li>문제 : 가맹점, SAP, E-accounting 등 화면별 소스 간 데이터 불일치 및 중복 계산으로 8개 메뉴/그리드 중 결함률 75%</li>
+        <li>정산 관련 프로시저와 ETL 로직을 전면 재설계 - E-accounting, SAP청구, 메세지발송상세, 가맹점사용현황 등 주요 정산 화면의 업무로직을 통합해 발송비 내역을 공통 SP로 관리</li>
+        <li>세금계산서 대사 로직 및 프로시저 간 오차 내역을 아카이빙/문서화해 점검과 유지보수가 가능한 구조로 전환</li>
+        <li>결과 : <b>결함률 75% → 0%</b>, 업무흐름과 데이터흐름의 align으로 관리 용이성 확보</li>
+      </ul>
+
+      <h4>쿼리 성능 개선</h4>
+      <ul class="pts">
+        <li>대용량 발송 로그 조인으로 가맹점청구 상세 조회가 69초 소요 - 자가 조인 및 필터 컬럼 인덱싱, 임시 테이블 구조 최적화로 실행계획을 단순화하고 불필요한 조인 제거</li>
+        <li>결과 : <b>69초 → 1.5초</b>로 단축, 정산 업무 대기시간 해소</li>
+        <li>타겟메타 산출도 복잡한 서브쿼리와 full scan을 유발하는 필터 조건을 인덱스 구조와 함께 최적화 - <b>평균 5분 이상 → 1초 내외</b></li>
+      </ul>
+
+      <h4>운영 자동화와 거버넌스</h4>
+      <ul class="pts">
+        <li>반복 요청되던 데이터 추출을 자동화 - 캠페인사용, 프로모션, 메세지발송, 웹로그 데이터를 주제별로 재구조화하고 화면설계서를 직접 작성해 조회 화면 3종 신규 구축. <b>수작업 추출 월평균 7건 → 0건</b></li>
+        <li>조직개편/개폐점 변경 시 캠페인과 BI 간 데이터가 갱신되지 않아 매일 수동 전달하던 문제를, 스냅샷 기반 일배치 ETL로 자동화하고 변경 로그 관리체계 확립. <b>BI 반영 최신화율 0% → 100%</b></li>
+        <li>ETL 권한 중복과 로그 미관리로 오류 가능성이 높던 구조를 전면 재정의하고 배치 수행 이력/로그를 자동화. <b>권한 결함 100건 이상 → 0건</b></li>
+      </ul>
+
+      <h4>결과</h4>
+      <ul class="pts">
+        <li>정합성, 성능, 자동화, 권한 관리를 함께 정리해 정산 파이프라인을 신뢰 가능한 운영 자산으로 전환</li>
+        <li>데이터 파이프라인의 품질은 적재 이후의 대사, 로그, 권한 체계에서 결정된다는 것을 확인</li>
+      </ul>
+
+      </details>
+    </article>
+
+    <article class="case">
+      <h3>CDP 기반 ML 데이터 파이프라인 운영 - 수집부터 모델 서빙까지</h3>
+      <p class="meta">Treasure Data, DigDag, Trino, Python, Tableau</p>
+
+      <ul class="tldr">
+        <li data-k="문제">호텔롯데, 롯데렌탈 CDP에서 ML 모델과 BI 대시보드가 함께 의존하는 데이터 흐름을 운영 - 수집, 전처리, 모델 서빙 전 과정에서 신규 요건과 장애가 상시 발생</li>
+        <li data-k="결정">DigDag 워크플로와 Trino 기반으로 분석/대시보드용 데이터 마트를 구축하고, 수집 단계의 수작업과 모델 파이프라인의 재현성 문제를 각각 자동화/구조 개선으로 해결</li>
+        <li data-k="결과">MICE 행사 정보 수집 자동화율 100%, 클러스터 ID 매핑 재현성 확보로 클러스터링 모델 성능 20%p 개선</li>
+      </ul>
+
+      <details>
+        <summary>전체 과정 읽기</summary>
+
+      <h4>파이프라인 운영</h4>
+      <ul class="pts">
+        <li>분석/대시보드용 데이터 마트, 웹행동 데이터 기반 고객 통합 등 데이터 파이프라인을 DigDag 워크플로와 Trino 쿼리로 운영/개발</li>
+        <li>데이터 적재부터 전처리, 모델 서빙까지 전 과정에 신규 개발 요건을 반영하고, 데이터 불일치와 스케줄링 오류 등 정형적 문제는 원인 분석 후 개선안을 적용</li>
+      </ul>
+
+      <h4>수집 자동화</h4>
+      <ul class="pts">
+        <li>MICE 행사 정보를 수동 수집하던 프로세스를 Python 기반 스케줄링/크롤링 파이프라인으로 신규 구축</li>
+        <li>웹페이지 구조 변경에도 대응 가능한 형태로 설계해 유지보수성 확보 - <b>수집 자동화율 100%</b>, 데이터 품질 일관성 확보</li>
+      </ul>
+
+      <h4>모델 파이프라인 재현성 개선</h4>
+      <ul class="pts">
+        <li>문제 : 고객 클러스터 ID 갱신 로직이 임의 배정되어 재현성이 낮고, 모델 재학습 간 클러스터 일관성이 보장되지 않음 - 같은 고객이 매번 다른 세그먼트로 분류되면 마케팅 활용이 불가능</li>
+        <li>헝가리안 알고리즘을 적용해 군집 ID 매핑 정확도를 높이고, ML 파이프라인 내 클러스터 갱신 로직을 개선</li>
+        <li>결과 : <b>클러스터링 모델 성능 20%p 향상</b>, 세그먼트의 시점 간 일관성 확보</li>
+      </ul>
+
+      <h4>결과</h4>
+      <ul class="pts">
+        <li>ML 모델의 실사용 가능 여부는 모델 성능만이 아니라 입력 데이터의 수집 자동화와 출력의 재현성에서 갈린다는 것을 확인</li>
+        <li>OLTP 성격의 운영계와 OLAP 성격의 분석계를 함께 다루며 데이터 흐름 전주기를 설계/운영</li>
       </ul>
 
       </details>
@@ -612,7 +698,7 @@
     <div class="skills">
       <div class="skill-group">
         <h3>DATA ENGINEERING</h3>
-        <ul><li>ETL - Glue, Datastage, NiFi</li><li>SQL - MySQL, Trino, PostgreSQL, Athena</li><li>DW/DM 모델링, 데이터 품질 관리</li><li>RAG 데이터 파이프라인, 벡터 검색 연동</li></ul>
+        <ul><li>ETL - Glue, DataStage, NiFi, DigDag</li><li>SQL - MySQL, Trino, PostgreSQL, Athena</li><li>Treasure Data(CDP), Shell Script</li><li>DW/DM 모델링, 쿼리 튜닝, 데이터 품질 관리</li><li>RAG 데이터 파이프라인, 벡터 검색 연동</li></ul>
       </div>
       <div class="skill-group">
         <h3>AI, LLM</h3>
